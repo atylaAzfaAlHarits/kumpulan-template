@@ -1,0 +1,185 @@
+body {
+	user-select: none;
+	min-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+html {
+	scroll-behavior: smooth;
+}
+
+.sunny {
+	background: linear-gradient(180deg, #fce043 0%, #fb7ba2 74%);
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+.night {
+	background: linear-gradient(#2b1055, #7597de);
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	pointer-events: none;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 3rem 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1000;
+}
+header .logo {
+	color: #fff;
+	font-weight: 700;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-shadow: 0 0 0.2rem #1c0522;
+}
+header ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+}
+header ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header ul li a {
+	color: #fff;
+	font-weight: 500;
+	text-shadow: 0 0 0.2rem #1c0522;
+	transition: all 0.3s ease-in-out;
+	padding: 1rem 1.5rem;
+	position: relative;
+}
+header ul li a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 100%;
+	border-radius: 0.8rem;
+	transition: all 0.3s ease-in-out;
+	background-color: #fff;
+	z-index: -1;
+}
+header ul li a:hover,
+header ul li a.active {
+	text-shadow: unset;
+	color: #2b1055;
+}
+
+header ul li a:hover::before,
+header ul li a.active::before {
+	left: 0;
+	right: unset;
+	width: 100%;
+}
+
+header .menu-bar {
+	display: none;
+	font-size: 3rem;
+	color: #fff;
+}
+
+section {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	padding: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+section::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 10rem;
+	background: linear-gradient(to top, #1c0522, transparent);
+	z-index: 100;
+}
+section img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+section img#moon {
+	mix-blend-mode: color-dodge;
+}
+section img#moon-behind {
+	mix-blend-mode: difference;
+}
+section img#moon-front {
+	mix-blend-mode: hard-light;
+	z-index: 10;
+}
+section .text {
+	position: absolute;
+	color: #fff;
+	font-size: 9rem;
+	white-space: nowrap;
+	z-index: 9;
+}
+section .btn {
+	padding: 1.4rem 3rem;
+	background-color: #fff;
+	color: #2b1055;
+	border-radius: 2rem;
+	z-index: 11;
+	transform: translateY(calc(100% + 5rem));
+	font-size: 2rem;
+}
+
+.desc {
+	position: relative;
+	padding: 8rem;
+	background-color: #1c0522;
+	color: #fff;
+}
+.desc h2 {
+	font-weight: 600;
+	font-size: 3.5rem;
+	margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 991px) {
+	header {
+		padding: 1.5rem 3rem;
+	}
+	header .menu-bar {
+		display: block;
+	}
+	header ul {
+		display: none;
+	}
+	section .text {
+		font-size: 5rem;
+	}
+	.desc {
+		padding: 3rem;
+	}
+	header .logo {
+		font-size: 2.4rem;
+	}
+}
